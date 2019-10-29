@@ -1,0 +1,40 @@
+
+
+console:
+pip3 install virtualenv
+virtualenv env
+source env/bin/activate
+pip3 install flask flask-sqlalchemy
+
+//for runing the web service
+python3 app.py 
+
+
+///////////////////////////////
+pip install piping
+
+pipenv shell
+
+pipenv install flask
+
+sudo pipenv install psycopg2
+
+sudo pipenv install psycopg2-binary
+
+sudo pipenv install flask-sqlalchemy
+
+pipenv install gunicorn
+
+
+////////////////////
+##for pip library on python 3
+
+sudo sudo pip install pil
+
+python -m pip install pillow
+
+
+
+
+
+

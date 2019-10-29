@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../static/style.css" />
+    
+    <title>steganography app</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <img src="../static/logo.png" alt="StegnoIcon" class="logo" />
+      <div class="text-content">
+      <h2>Welcome To hiding data system</h2>
+      <div class="line-dec"></div>
+      <span>---------> follow the following steps --------></span>
+      </div>
+
+      <div class="form-group">
+        {% if message %}
+        <p class="message">{{ message | safe }}</p>
+        {% endif %}
+        <h3>1. Upload a file:</h3>
+        <form method="post" action="/uploadfile" enctype="multipart/form-data">
+            <dl>
+            <p>
+              <input type="file" name="upfile" autocomplete="off" required>
+              <input type="submit" value="Upload">
+            </p>
+            </dl>
+            <p>
+          </p>
+        </form>
+    </div>
+
+      <form action="/submit" method="POST">
+        <div class="form-group">
+          <h3>2. Method to hide:</h3>
+          <select name="method">
+            <option value="">Choose an algorithm-></option>
+            <option value="LSB1">Image - LSB1</option>
+            <option value="LSB2">Image - LSB2</option>
+            <option value="MSB1">Image - MSB1</option>
+            <option value="MSB2">Image - MSB2 In file</option>
+            <option value="AudioLSB1">Audio - LSB1</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <h3>3. Action:</h3>
+          <input type="radio" name="action" value="HideText" checked/> HideText
+          <input type="radio" name="action" value="DiscoverText" /> DiscoverText
+        </div>
+        <div class="form-group">
+          <h3>4. Your Message:</h3>
+          <textarea
+            name="comments"
+            id=""
+            cols="30"
+            rows="10"
+            placeholder="Your text... ">
+          </textarea>
+        </div>
+        {% if message %}
+        <p class="message">{{ message | safe }}</p>
+        {% endif %}
+        <input type="submit" value="I am ready!" class="btn" />
+      </form>
+
+      <div class="form-groupr">
+        <br>-------------------------------------------------------------------------------------------------------------</h2>
+        <p>-------------------------------------------------------------------------------------------------------------</p>
+    </div>
+
+      <div class="form-groupr">
+            <img src="../static/TeamPic.png" alt="" class="logo">
+            <h2></h2>
+          <h2><em >About us</em><br>Our experience from the project</h2>
+          <p>We enjoyed very much during this project. we have been exposed to the steganography subject that we never heard about before, we examined diffrent develop platforms.</p>
+      </div>
+    </div>
+
+    
+
+    <footer>
+        <div class="container">
+          <div class="row">
+              <p>Copyright &copy; 2019 Steganography team
+
+                      | H.I.T - Avishay, Miki and Oshrat</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+  </body>
+</html>
