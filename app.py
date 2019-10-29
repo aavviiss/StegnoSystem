@@ -34,6 +34,7 @@ def upload_file():
         if 'upfile' not in request.files:
             flash('No file part')
             return redirect(request.url)
+        #Upload file
         file = request.files['upfile']
         if file.filename == '':
             flash('No file selected for uploading')
@@ -63,7 +64,7 @@ def submit():
             #Detail check
             if  method == '' or comments == '          ' or MyFile == '':
                 return render_template('index.html', message='Please enter required fields')
-
+            #Method LSB1
             elif method == 'LSB1':    
                 MyFile = MyFile.replace("\n", "")
                 MyFile = MyFile.replace("file-upload/", "")
@@ -72,7 +73,7 @@ def submit():
                 hideLSB1(MyFile,comments)
                 shutil.move(MyPath+"/"+MyFile, MyPath+"/HidedFilesHistory/"+MyFile)
                 return render_template('success.html')
-
+            #Method LSB2
             elif method == 'LSB2':    
                 MyFile = MyFile.replace("\n", "")
                 MyFile = MyFile.replace("file-upload/", "")
@@ -81,7 +82,7 @@ def submit():
                 hideLSB2(MyFile,comments)
                 shutil.move(MyPath+"/"+MyFile, MyPath+"/HidedFilesHistory/"+MyFile)
                 return render_template('success.html')
-            
+            #Method MSB1
             elif method == 'MSB1':    
                 MyFile = MyFile.replace("\n", "")
                 MyFile = MyFile.replace("file-upload/", "")
@@ -90,7 +91,7 @@ def submit():
                 hideMSB1(MyFile,comments)
                 shutil.move(MyPath+"/"+MyFile, MyPath+"/HidedFilesHistory/"+MyFile)
                 return render_template('success.html')
-            
+            #Method MSB2
             elif method == 'MSB2':    
                 MyFile = MyFile.replace("\n", "")
                 MyFile = MyFile.replace("file-upload/", "")
@@ -99,7 +100,7 @@ def submit():
                 hideMSB2(MyFile,comments)
                 shutil.move(MyPath+"/"+MyFile, MyPath+"/HidedFilesHistory/"+MyFile)
                 return render_template('success.html')
-            
+            #Method Audio
             elif method == 'AudioLSB1':    
                 MyFile = MyFile.replace("\n", "")
                 MyFile = MyFile.replace("file-upload/", "")
@@ -114,7 +115,7 @@ def submit():
             # add file chack to the if
             if  method == '' or MyFile == '':
                 return render_template('index.html', message='!You missed something!')
-
+            #Method LSB1
             elif method == 'LSB1':
                 MyFile = MyFile.replace("\n", "")
                 MyFile = MyFile.replace("file-upload/", "")
@@ -123,7 +124,7 @@ def submit():
                 HiddenText = (retrLSB1(MyFile))
                 shutil.move(MyPath+"/"+MyFile, MyPath+"/DiscoverdFilesHistory/"+MyFile)
                 return render_template('HiddenText.html', message=HiddenText)
-            
+            #Method LSB2
             elif method == 'LSB2':
                 MyFile = MyFile.replace("\n", "")
                 MyFile = MyFile.replace("file-upload/", "")
@@ -132,7 +133,7 @@ def submit():
                 HiddenText = (retrLSB2(MyFile))
                 shutil.move(MyPath+"/"+MyFile, MyPath+"/DiscoverdFilesHistory/"+MyFile)
                 return render_template('HiddenText.html', message=HiddenText)
-            
+            #Method MSB1
             elif method == 'MSB1':
                 MyFile = MyFile.replace("\n", "")
                 MyFile = MyFile.replace("file-upload/", "")
@@ -141,7 +142,7 @@ def submit():
                 HiddenText = (retrMSB1(MyFile))
                 shutil.move(MyPath+"/"+MyFile, MyPath+"/DiscoverdFilesHistory/"+MyFile)
                 return render_template('HiddenText.html', message=HiddenText)
-
+            #Method MSB2
             elif method == 'MSB2':
                 MyFile = MyFile.replace("\n", "")
                 MyFile = MyFile.replace("file-upload/", "")
@@ -151,7 +152,7 @@ def submit():
                 retrMSB2(MyFile)
                 shutil.move(MyPath+"/"+MyFile, MyPath+"/DiscoverdFilesHistory/"+MyFile)
                 return render_template('HiddenText.html', message=HiddenText)
-
+            #Method Audio
             elif method == 'AudioLSB1':
                 MyFile = MyFile.replace("\n", "")
                 MyFile = MyFile.replace("file-upload/", "")

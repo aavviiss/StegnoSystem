@@ -3,20 +3,23 @@ from flask import Flask
 import binascii, optparse, os
 
 def rgb2hex(r, g, b):
+    #Convert RGB to Hexa decimal
     return '#{:02x}{:02x}{:02x}'.format(r, g, b)
 
 def hex2rgb(hexcode):
+    #Convert Hexa decimal to RGB
     """Return (red, green, blue) for the color given as #rrggbb."""
     hexcode = hexcode.lstrip('#')
     lv = len(hexcode)
     return tuple(int(hexcode[i:i + lv // 3], 16) for i in range(0, lv, lv // 3))
 
 def str2bin(message):
+    #Convert String ti Binary
 	binary = bin(int.from_bytes(message.encode(), 'big'))
 	return(binary)
 
 def encode(hexcode, digit):
-    # if the last digit is 0/1/2/3/4/5 it will save data
+    #If the last digit is 0/1/2/3/4/5 it will save data
     if hexcode[-1] in ('0', '1', '2', '3', '4', '5'):
         hexcode = hexcode[:-1] + digit
         return hexcode

@@ -6,7 +6,7 @@ import binascii
 import optparse
 import os
 import textwrap
-
+#Decode MSB2
 def retrMSB2(filename):
     encoded_image = Image.open(filename)
     red_channel = encoded_image.split()[0]
@@ -16,7 +16,7 @@ def retrMSB2(filename):
 
     decoded_image = Image.new("RGB", encoded_image.size)
     pixels = decoded_image.load()
-
+    #Check the red channel
     for i in range(x_size):
         for j in range(y_size):
             if bin(red_channel.getpixel((i, j)))[-1] == '0':

@@ -1,7 +1,7 @@
 from PIL import Image
 from flask import Flask
 import binascii, optparse, os, argparse, os.path, sys
-
+#Decode LSB2
 def retrLSB2(filename):
     out = ""
     byte = ""
